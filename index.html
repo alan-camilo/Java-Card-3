@@ -67,9 +67,6 @@
 					<li> Vérification de bytecode obligatoire </li>
 					<li> Data types : Char, Long and String </li>
 				</ul>
-
-
-
 			</section>
 
 			<section>
@@ -77,6 +74,14 @@
 					<img src ="Archi javacard.png ">
 					<figcaption>Schéma de l'architecture Java Card</figcaption>
 				</figure>
+				<aside class="notes">Applets classiques :
+					- La communication se fait via le protocole APDU (norme ISO 7816-4).
+					- Utilisation d’API compatibles avec la précédente version.<br>
+					Les Applets étendus :
+					- La communication se fait aussi via le protocole APDU. Permet l'utilisation des API des applets classiques mais aussi de nouvelles API tels que les Threads, Strings, et GCF (Generic Connection Framework).
+					Les Servlets :
+					- La communication se fait via le protocole HTTP ou HTTPS.
+					- Basées sur la version spécification des Servlets 2.4 Java </aside>
 			</section>
 
 
@@ -85,6 +90,17 @@
 					<img src ="pile protocolaire.png ">
 					<figcaption>Schéma de la pile protocolaire</figcaption>
 				</figure>
+				<aside class="notes">
+					Physique :<br>
+					 - Universal Serial Bus (USB) MultiMediaCard (MMC) ISO 7816-3.<br>
+					- ISO 14443 (contactless)<br>
+					APDU ISO 7816-4<br>
+					Internet Protocol (IP) Transmission Control Protocol (TCP).
+					 Universal Datagram Protocol (UDP).
+					 Transport Layer Security (TLS).
+					 Hypertext Transfer Protocol (HTTP).
+					 Secure Hypertext Transfer Protocol (HTTP sur TLS)
+				</aside>
 			</section>
 			
 			<section>
@@ -113,7 +129,13 @@
 					JC 3 vise un marché plus "haut de gamme" que JC 2.2 (carte SIM, certains marché d'authentification) avec des applications comme :
 				</aside>
 			</section>
-			
+			<section>
+				<figure>
+					<img src="qualified electronic signature.png">
+					<figcaption>Architecture générale</figcaption>
+				</figure>
+				<aside class="notes">le smartphone doit etre sur le réseau wifi pour etre un noeud sur le même réseau que le pc</aside>
+			</section>
 			<section>
 				<h3> Premiere application </h3>
 				<figure class="stretch">
@@ -122,15 +144,29 @@
 				</figure>
 			</section>
 			<section>
+				<ol>
+					<li>Chiffrement RSA 2048-bit</li>
+					<li>Clé privé stockée sur la carte SIM</li>
+					<li>Clé publique obtenue via la Certification Authority (CA)</li>
+				</ol>
+				<img class="stretch" src="CA.png">
+				<aside class="notes">actuellement certification uniquement coté CA, ici ajout de la partie SIM, la clé privée ne quitte pas la carte SIM durant tout le processus</aside>
+			</section>
+			<section>
+				<ol>
+					<li>Pas de communication avec l'OS du Smartphone ou ses applications -> moins de failles de sécurité</li>
+					<li>Simplicité de l'application</li>
+					<li>Respecte le standard Common Criteria EAL 4 level</li>
+					<li>Respecte la directive européenne 1999/93/E sur les signatures électroniques</li>
+				</ol>
+			</section>
+			<section>
 				<h3> Deuxiéme application : Disque Virtuel </h3>
 				<figure>
 					<img src ="Disque Virtuel.JPG ">
 					<figcaption>Figure : Architecture de l'application Disque Virtuel</figcaption>
 				</figure>
-
-
 			</section>
-
 			<section>
 				<h3> Conclusion </h3>
 			</section>
